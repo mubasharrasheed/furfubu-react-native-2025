@@ -1,4 +1,4 @@
-import {legacy_createStore as createStore} from 'redux'
+import { legacy_createStore as createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import userReducer from './Reducers';

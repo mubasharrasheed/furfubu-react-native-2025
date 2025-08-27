@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*", "App.js", "index.js"],
+  "exclude": ["node_modules", "ios", "android", "**/node_modules", "**/Pods"]
+}

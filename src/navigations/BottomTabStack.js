@@ -41,7 +41,7 @@ export default function BottomTabStack() {
     >
       {/* Home Tab */}
       <Tab.Screen
-        name="Home"
+        name='Home'
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -60,7 +60,7 @@ export default function BottomTabStack() {
 
       {/* Chart Tab */}
       <Tab.Screen
-        name="Chart"
+        name='Chart'
         component={Chart}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -79,7 +79,7 @@ export default function BottomTabStack() {
 
       {/* Middle Floating Camera Tab */}
       <Tab.Screen
-        name="Camera"
+        name='Camera'
         component={Camera}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -98,7 +98,7 @@ export default function BottomTabStack() {
 
       {/* Community Tab */}
       <Tab.Screen
-        name="Community"
+        name='Community'
         component={Community}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -117,7 +117,7 @@ export default function BottomTabStack() {
 
       {/* Profile Tab */}
       <Tab.Screen
-        name="Profile"
+        name='Profile'
         component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (

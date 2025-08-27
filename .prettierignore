@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+android/build/
+android/app/build/
+ios/build/
+ios/Pods/
+
+# Generated files
+android/build/generated/
+ios/build/generated/
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# React Native
+android/app/src/main/assets/fonts/
+ios/furfubu/Images.xcassets/
+
+# Test files
+__tests__/
+*.test.js
+*.test.ts
+*.test.tsx
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE 
