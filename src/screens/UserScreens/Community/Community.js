@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import ZSafeAreaView from '../../../components/common/ZSafeAreaView';
 
 const Community = () => {
   return (
-    <View>
+    <ZSafeAreaView>
       <Text>Community</Text>
-    </View>
+    </ZSafeAreaView>
   );
 };
 

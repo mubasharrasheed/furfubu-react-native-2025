@@ -19,6 +19,9 @@ const ZInput = ({
   keyboardType = 'default',
   style,
   error,
+  onFocus,
+  onBlur,
+  icon,
 }) => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
@@ -34,6 +37,9 @@ const ZInput = ({
           error ? { borderColor: colors.red || 'red' } : {},
         ]}
       >
+        <View style={styles.iconContainer}>
+          {(icon && icon) || <Svgs.Lock width={20} height={20} />}
+        </View>
         <TextInput
           style={[styles.input, style]}
           placeholder={placeholder}
@@ -41,7 +47,9 @@ const ZInput = ({
           onChangeText={onChangeText}
           secureTextEntry={showPasswordToggle && !isPasswordVisible}
           keyboardType={keyboardType}
-          placeholderTextColor='#999'
+          placeholderTextColor="#999"
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
         {showPasswordToggle && (
           <TouchableOpacity
@@ -69,7 +77,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    marginBottom: 6,
+    marginBottom: 10,
     color: colors.white,
     fontFamily: Fonts.Bold,
   },
@@ -87,9 +95,12 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     color: '#fff',
-    paddingHorizontal: 15,
-    fontFamily: Fonts.Bold,
+    // paddingHorizontal: 15,
+    fontFamily: Fonts.Regular,
     height: 50,
+  },
+  iconContainer: {
+    paddingHorizontal: 15,
   },
   eyeIcon: {
     paddingHorizontal: 4,

@@ -7,20 +7,35 @@ import {
   View,
 } from 'react-native';
 
-const ZKeyboard = ({ children, contentContainerStyle, style }) => {
+const ZKeyboard = ({
+  children,
+  contentContainerStyle,
+  style,
+  showsVerticalScrollIndicator = false,
+  keyboardShouldPersistTaps = 'handled',
+  bounces = false,
+  bottomPadding = 100,
+}) => {
   return (
     <KeyboardAvoidingView
       style={[styles.flex, style]}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+      enabled={true}
     >
       <ScrollView
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator={showsVerticalScrollIndicator}
         contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
-        keyboardShouldPersistTaps='handled'
+        keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+        bounces={bounces}
+        alwaysBounceVertical={false}
+        nestedScrollEnabled={true}
+        scrollEnabled={true}
+        contentInsetAdjustmentBehavior="automatic"
+        removeClippedSubviews={false}
       >
         {children}
-        <View style={{ height: 40 }} />
+        <View style={{ height: bottomPadding }} />
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -32,6 +47,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 10,
+    paddingBottom: 20,
   },
 });
 

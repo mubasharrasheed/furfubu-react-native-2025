@@ -23,7 +23,7 @@ const ZButton = ({
       activeOpacity={0.8}
     >
       {loading ? (
-        <ActivityIndicator size='small' color='#fff' />
+        <ActivityIndicator size="small" color="#fff" />
       ) : (
         <Text style={[styles.text, textStyle]}>{title}</Text>
       )}

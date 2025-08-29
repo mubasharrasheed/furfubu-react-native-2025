@@ -11,6 +11,7 @@ import { Svgs } from '../../assets/svgs';
 import colors from '../../theme/colors';
 import Fonts from '../../utils/helper';
 import { useNavigation } from '@react-navigation/native';
+import { moderateScale } from '../../utils/scale';
 
 const ZHeader = ({
   title,
@@ -38,7 +39,7 @@ const ZHeader = ({
         style={[
           styles.content,
           {
-            justifyContent: center ? 'space-between' : 'flex-start',
+            justifyContent: center ? 'center' : 'flex-start',
             alignItems: 'center',
           },
         ]}
@@ -49,7 +50,9 @@ const ZHeader = ({
             styles.leftSection,
             {
               flex: center ? 0 : 0,
-              //   paddingLeft: 15,
+              position: center ? 'absolute' : 'relative',
+              left: center ? moderateScale(0) : 0,
+              zIndex: center ? 1 : 0,
             },
           ]}
         >
@@ -71,22 +74,20 @@ const ZHeader = ({
             {
               flex: center ? 1 : 1,
               alignItems: center ? 'center' : 'flex-start',
+              justifyContent: center ? 'center' : 'flex-start',
               paddingLeft: center ? 0 : 0,
               paddingRight: center ? 0 : 15,
+              width: center ? '100%' : 'auto',
             },
           ]}
         >
-          {title && !center && (
+          {title && (
             <Text
-              style={[styles.title, { color: titleColor }, titleStyle]}
-              numberOfLines={1}
-            >
-              {title}
-            </Text>
-          )}
-          {title && center && (
-            <Text
-              style={[styles.centeredTitle, { color: titleColor }, titleStyle]}
+              style={[
+                center ? styles.centeredTitle : styles.title,
+                { color: titleColor },
+                titleStyle,
+              ]}
               numberOfLines={1}
             >
               {title}
@@ -95,7 +96,18 @@ const ZHeader = ({
         </View>
 
         {/* Right Section - Right Icon */}
-        <View style={[styles.rightSection, { flex: center ? 0 : 0 }]}>
+        <View
+          style={[
+            styles.rightSection,
+            {
+              flex: center ? 0 : 0,
+              position: center ? 'absolute' : 'relative',
+              right: center ? moderateScale(0) : 0,
+              zIndex: center ? 1 : 0,
+              paddingRight: center ? 0 : moderateScale(15),
+            },
+          ]}
+        >
           {rightIcon && (
             <TouchableOpacity
               style={styles.rightButton}
@@ -117,7 +129,7 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 15,
     // paddingBottom: 10,
     // paddingVertical: 10,
-    paddingHorizontal: 15,
+    paddingHorizontal: moderateScale(15),
   },
   content: {
     flexDirection: 'row',
@@ -136,32 +148,32 @@ const styles = StyleSheet.create({
   },
   rightSection: {
     alignItems: 'flex-end',
-    paddingRight: 15,
   },
   backButton: {
     // padding: 8,
-    paddingVertical: 10,
+    paddingVertical: moderateScale(10),
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
     // backgroundColor: 'red',
   },
   rightButton: {
-    // padding: 8,
-    borderRadius: 20,
+    // padding: moderateScale(8),
+    borderRadius: moderateScale(20),
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   title: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontFamily: Fonts.SemiBold,
     textAlign: 'left',
   },
   centeredTitle: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: moderateScale(18),
     fontFamily: Fonts.Bold,
+    // backgroundColor: 'red',
   },
 });
 

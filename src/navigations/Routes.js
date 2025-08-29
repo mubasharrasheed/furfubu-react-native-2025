@@ -6,8 +6,7 @@ import { useSelector } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 
 export default function Routes() {
-  const user = useSelector(state => state.user);
-  console.log('Routes ==> ', user);
+  const user = useSelector(state => state.user?.user);
 
   setTimeout(() => {
     RNBootSplash.hide({ fade: true });
